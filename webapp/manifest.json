@@ -1,0 +1,117 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "techenvo.objectpage",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "dataSources": {
+			"userdetailsDS": {
+				"uri": "/rest/userdetailsservice/userdetails",
+				"type": "JSON"
+			}
+		},
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.0",
+      "toolsId": "c47f714c-c84a-424f-8823-837580bc4c81"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.128.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "users" : {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "./model/userdetails.json"
+			},
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "techenvo.objectpage.i18n.i18n"
+        }
+      },
+      "": {
+				"dataSource": "userdetailsDS",
+				"settings": {
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"operationMode": "Server"
+				}
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "techenvo.objectpage.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteObjectPageView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetObjectPageView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetObjectPageView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ObjectPageView",
+          "viewName": "ObjectPageView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "techenvo.objectpage.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

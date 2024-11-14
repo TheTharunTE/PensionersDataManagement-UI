@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:forms="sap.ui.layout.form"
+>
+    <ObjectPageSubSection title="Contact Information" titleUppercase="false">
+					    
+	    <blocks >
+		  <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start"
+				justifyContent="End">
+				<m:VBox>
+                   <m:Button text="Edit" type="Emphasized" enabled="true" press="handlePhonesEditPress" />
+				</m:VBox>
+				<m:VBox items="{path : '/phones'}">
+
+                               <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+											  layout="ColumnLayout"
+											  columnsM="2"
+											  columnsL="3"
+											  columnsXL="4"
+											  >
+
+								<core:Title text="Phone Type : {label}"  />
+                                <m:Label text="Extension" />
+								<m:Text text="{extension}"/>
+								<m:Label text="Area Code" />
+								<m:Text text="{areaCode}"/>
+								<m:Label text="Phone Number" />
+								<m:Text text="{phoneNumber}"/>
+								<m:Label text="Country Code" />
+								<m:Text text="{countryCode}"/>
+								<m:CheckBox selected="{isPrimary}" text="Is Primary" enabled='false'/>
+
+						  	</forms:SimpleForm>
+						   
+							</m:VBox>
+           </m:FlexBox>								
+        </blocks>
+	</ObjectPageSubSection>
+</core:FragmentDefinition>

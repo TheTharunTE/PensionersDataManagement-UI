@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:forms="sap.ui.layout.form"
+>
+    <ObjectPageSubSection title="Emails Information" titleUppercase="false">
+					    
+	    <blocks >
+		    
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start"
+				justifyContent="SpaceBetween">
+				
+				<m:VBox items="{path : '/emails'}">
+
+				
+
+                    <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+											  layout="ColumnLayout"
+											 columnsM="2"
+											  columnsL="3"
+											  columnsXL="4"									 
+											  >
+							 <forms:content>
+
+								<core:Title text="Email Type : {label}"  />
+								
+                                <m:Label text="Email address" />
+								<m:Text text="{emailAddress}"/>
+                                <m:Label text="Is Primary" visible='true' />
+								<m:Text text="{isPrimary}" width="150%" />
+								
+ 							</forms:content>
+						  	</forms:SimpleForm>
+					 
+							</m:VBox>
+							<m:VBox>
+                     <m:Button text="Edit" type="Emphasized" enabled="true" press="handleEmailsEditPress" />
+				</m:VBox>
+           </m:FlexBox>			
+            
+		   					
+        </blocks>
+	</ObjectPageSubSection>
+</core:FragmentDefinition>

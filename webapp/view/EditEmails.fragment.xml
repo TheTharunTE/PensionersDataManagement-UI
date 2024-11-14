@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:forms="sap.ui.layout.form"
+>
+    <ObjectPageSubSection title="Emails Information" titleUppercase="false">
+					    
+	    <blocks >
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start"
+				justifyContent="End">
+				<m:Button text="Add New" press="handleAddEmails" />
+				<m:Button text="Save" press="handleEmailsSavePress" />
+				<m:Button text="Cancel" press="handleEmailsCancelPress"/>
+				<m:VBox items="{path : '/emails'}">
+
+                              <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+											  layout="ColumnLayout"
+											 columnsM="2"
+											  columnsL="3"
+											  columnsXL="4"
+														 
+											  >
+ 							    <m:Label text="email Type" />
+
+								
+								
+								<m:Select
+									forceSelection="false"
+									selectedKey="{emailType}"
+									items="{path : '/ecemailtypes'}"
+									autoAdjustWidth= "true"
+									maxWidth="75%"
+									>
+									<core:ListItem key="{optionId}" text="{label}" />
+								</m:Select>
+                              
+							    <m:Label text="Email Address" />
+								<m:Input value="{emailAddress}"/>
+
+								<m:CheckBox selected="{isPrimary}" text="IsPrimary" enabled='true'/>
+
+								<m:Button icon="sap-icon://delete" type="Emphasized" press="handleDeleteEmails"/>
+
+						  	</forms:SimpleForm>
+						   
+							</m:VBox>
+           </m:FlexBox>								
+        </blocks>
+	</ObjectPageSubSection>
+</core:FragmentDefinition>

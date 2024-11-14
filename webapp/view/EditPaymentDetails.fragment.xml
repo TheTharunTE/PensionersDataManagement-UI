@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:forms="sap.ui.layout.form"
+>
+    <ObjectPageSubSection title="Payment Information" titleUppercase="false">
+					    
+	    <blocks >
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start"
+				justifyContent="End">
+				<m:Button text="Add New" press="handleAddPaymentDetails" />
+				<m:Button text="Save" press="handlePaymentDetailsSavePress" />
+				<m:Button text="Cancel" press="handlePaymentDetailsCancelPress"/>
+				<m:VBox items="{path : '/paymentInformation/paymentInformationdetailV3'}">
+
+                               <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+											  layout="ColumnLayout"
+											  columnsM="2"
+											  columnsL="3"
+											  columnsXL="5"
+											  >
+							<forms:content>
+							   
+								<m:Label text="Pay Type" />
+								<m:Input value="{payType}"/>
+ 							    <m:Label text="Bank Country" />
+								<m:Input value="{bankCountry}"/>
+                                <m:Label text="Bank" />
+								<m:Input value="{bank}"/>
+								<m:Label text="Account Owner" />
+								<m:Input value="{accountOwner}"/>
+								<m:Label text="IBan" />
+								<m:Input value="{iban}"/>
+								<m:Label text="Payment Method" />
+								<m:Input value="{paymentMethod}"/>
+								<m:Label text="Percent" />
+								<m:Input value="{percent}"/>
+								<m:Label text="Currency" />
+								<m:Input value="{currency}"/>
+								<m:Select
+									forceSelection="false"
+									autoAdjustWidth="true"
+									selectedKey="{currency}"
+									wrapItemsText="true"
+									width="10"
+									
+									items="{
+									        path : '/currency',
+											length: 500,
+									        sorter: { path: 'code' }
+										   }"
+									>
+									<core:ListItem key="{code}" text="{externalName_defaultValue}" />
+								</m:Select>
+								
+								<m:Label text="Amount" />
+								<m:Input value="{amount}"/>
+								<m:Label text="Account Number" />
+								<m:Input value="{accountNumber}"/>
+								<m:Label text="Routing Number" />
+								<m:Input value="{routingNumber}"/>
+								<m:Label text="Custom PayType" />
+								<m:Input value="{customPayType}"/>
+								<m:Label text="Purpose" />
+								<m:Input value="{purpose}"/>
+								<m:Button icon="sap-icon://delete" type="Emphasized" press="handleDeletePaymentDetails"/>
+							  </forms:content>
+						  	</forms:SimpleForm>
+						   
+							</m:VBox>
+           </m:FlexBox>							
+        </blocks>
+	</ObjectPageSubSection>
+</core:FragmentDefinition>

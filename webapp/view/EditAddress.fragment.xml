@@ -1,0 +1,77 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+>
+    <ObjectPageSubSection title="Addresses Information" titleUppercase="false">
+					    
+	    <blocks >
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start"
+				justifyContent="End">
+				<m:Button text="Add New" press="handleAddAddress" />
+				<m:Button text="Save" press="handleAddressSavePress" />
+				<m:Button text="Cancel" press="handleAddressCancelPress"/>
+			
+				<m:VBox items="{path : '/addressInfo'}" >
+				
+                    <m:HBox>
+				
+                    <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+											  layout="ColumnLayout"
+											  >
+					    <forms:content>
+					         	<m:Label text="Address Type" />
+								<m:Input value="{addressType}" />
+
+                                <m:Label text="Address Line 1" />
+								<m:Input value="{address1}"/>
+
+								<m:Label text="Address Line 2" />
+								<m:Input value="{address2}" />
+
+								<m:Label text="Address line 3" />
+								<m:Input value="{address3}" />
+
+								<m:Label text="City" />
+								<m:Input value="{city}" />
+
+								<m:Label text="County" />
+								<m:Input value="{county}" />
+
+								<m:Label text="State" />
+								<m:Input value="{state}" />
+
+								<m:Label text="ZipCode" />
+								<m:Input value="{zipCode}" />
+
+								<m:Label text="Province" visible="{= ${country} === 'USA' }"/>
+								<m:Input value="{province}" visible="{= ${country} === 'USA' }"/>
+
+								<m:Label text="Country" />
+								
+							    
+								<m:Select
+									forceSelection="false"
+									maxWidth="100%"
+									selectedKey="{country}"
+									items="{path : '/countries'}"
+									>
+									<core:ListItem key="{code}" text="{externalName_defaultValue}" />
+								</m:Select>
+                              
+
+								<m:Button icon="sap-icon://delete" type="Emphasized" press="handleDeleteAddress"/>
+	
+                        </forms:content>
+						
+					</forms:SimpleForm>
+					</m:HBox>
+					
+					</m:VBox>
+				
+           </m:FlexBox>							
+        </blocks>
+	</ObjectPageSubSection>
+</core:FragmentDefinition>

@@ -1,0 +1,55 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:forms="sap.ui.layout.form"
+>
+    <ObjectPageSubSection title="Payment Information" titleUppercase="false">
+					    
+	    <blocks >
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Start"
+				justifyContent="End">
+				
+                <m:Button text="Edit" type="Emphasized" enabled="true" press="handlePaymentDetailsEditPress" />
+				<m:VBox items="{path : '/paymentInformation/paymentInformationdetailV3'}">
+
+                               <forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+											  layout="ColumnLayout"
+											  columnsM="2"
+											  columnsL="3"
+											  columnsXL="5"
+											  >
+							<forms:content>
+							  <core:Title text="Pay Type : {payType}" />
+ 							    <m:Label text="Bank Country" />
+								<m:Text text="{bankCountry}"/>
+                                <m:Label text="Bank" />
+								<m:Text text="{bank}"/>
+								<m:Label text="Account Owner" />
+								<m:Text text="{accountOwner}"/>
+								<m:Label text="IBan" />
+								<m:Text text="{iban}"/>
+								<m:Label text="Payment Method" />
+								<m:Text text="{paymentMethod}"/>
+								<m:Label text="Percent" />
+								<m:Text text="{percent}"/>
+								<m:Label text="Currency" />
+								<m:Text text="{currencyDescription}"/>
+								<m:Label text="Amount" />
+								<m:Text text="{amount}"/>
+								<m:Label text="Account Number" />
+								<m:Text text="{accountNumber}"/>
+								<m:Label text="Routing Number" />
+								<m:Text text="{routingNumber}"/>
+								<m:Label text="Custom PayType" />
+								<m:Text text="{customPayType}"/>
+								<m:Label text="Purpose" />
+								<m:Text text="{purpose}"/>
+							  </forms:content>
+						  	</forms:SimpleForm>
+						   
+							</m:VBox>
+           </m:FlexBox>							
+        </blocks>
+	</ObjectPageSubSection>
+</core:FragmentDefinition>
